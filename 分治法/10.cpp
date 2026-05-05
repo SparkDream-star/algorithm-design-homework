@@ -1,84 +1,43 @@
-//
-// Created by LENOVO on 2026/5/4.
-//
-//
-// Created by LENOVO on 2026/5/4.
-//
-
 #include <iostream>
 #include <vector>
 #include <windows.h>
-#include <climits>
 using namespace std;
 
-struct Result {
-    int first;   // 最大值
-    int second;  // 第二大值
+int fenqu(vector<int>& a, int left, int right)
+{
+    int key = a[left];
+    while(left < right)
+    {
+        while(left < right && a[right] <= key)
+            right--;
+        a[left] = a[right];
 
-    Result() : first(INT_MIN), second(INT_MIN) {}
-    Result(int f, int s) : first(f), second(s) {}
-};
-
-Result findSecondMax(vector<int>& arr, int left, int right) {
-    Result res;
-
-    // 基本情况：只有一个元素
-    if (left == right) {
-        res.first = arr[left];
-        res.second = INT_MIN;
-        return res;
+        while(left < right && a[left] >= key)
+            left++;
+        a[right] = a[left];
     }
-
-    // 基本情况：只有两个元素
-    if (right - left == 1) {
-        if (arr[left] > arr[right]) {
-            res.first = arr[left];
-            res.second = arr[right];
-        } else {
-            res.first = arr[right];
-            res.second = arr[left];
-        }
-        return res;
-    }
-
-    // 分治：将数组分成两半
-    int mid = left + (right - left) / 2;
-    Result leftRes = findSecondMax(arr, left, mid);
-    Result rightRes = findSecondMax(arr, mid + 1, right);
-
-    // 合并：从两个子问题的结果中找出最大值和第二大值
-    if (leftRes.first > rightRes.first) {
-        res.first = leftRes.first;
-        res.second = max(leftRes.second, rightRes.first);
-    } else if (rightRes.first > leftRes.first) {
-        res.first = rightRes.first;
-        res.second = max(rightRes.second, leftRes.first);
-    } else {
-        // 两个最大值相等
-        res.first = leftRes.first;
-        res.second = max(leftRes.second, rightRes.second);
-    }
-
-    return res;
+    a[left] = key;
+    return left;
 }
 
-int show_10() {
+int zhaoDa(vector<int>& a, int l, int r, int k)
+{
+    int pos = fenqu(a, l, r);
+    int bigNum = pos - l + 1;
+
+    if(bigNum == k)
+        return a[pos];
+    else if(bigNum > k)
+        return zhaoDa(a, l, pos - 1, k);
+    else
+        return zhaoDa(a, pos + 1, r, k - bigNum);
+}
+
+int show_10()
+{
     SetConsoleOutputCP(CP_UTF8);
-
-    vector<int> arr = {70, 40, 50, 20, 90, 30, 80, 10, 60, 45};
-
-    cout << "数组元素: ";
-    for (int num : arr) {
-        cout << num << " ";
-    }
-    cout << endl;
-
-    if (arr.size() < 2) {
-        cout << "数组元素不足，无法找到第二大元素！" << endl;
-        return -1;
-    }
-    Result result = findSecondMax(arr, 0, arr.size() - 1);
-    cout << "最大值: " << result.first << endl;
-    cout << "第二大元素: " << result.second << endl;
+    vector<int> arr = {5, 2, 9, 8, 1, 3};
+    int second = zhaoDa(arr, 0, arr.size()-1, 2);
+    cout << "数组第二大元素：" << second << endl;
     return 0;
 }
