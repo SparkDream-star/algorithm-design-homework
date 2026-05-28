@@ -3,7 +3,7 @@
 #include <windows.h>
 using namespace std;
 
-int max3(int a,int b,int c)
+int max(int a,int b,int c)
 {
     int t=a>b?a:b;
     return t>c?t:c;
@@ -53,7 +53,7 @@ int findMax(vector<int>& a,int l,int r,int& resL,int& resR)
     int left=findMax(a,l,mid,ml1,mr1);
     int right=findMax(a,mid+1,r,ml2,mr2);
     int midSum=getMid(a,l,mid,r,ml3,mr3);
-    int m=max3(left,right,midSum);
+    int m=max(left,right,midSum);
     if(m==left)
     {
         resL=ml1;

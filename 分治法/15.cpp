@@ -26,6 +26,5 @@ int show_15()
     int ans=threefind(a,0,8,5);
     cout<<ans<<endl;
     return 0;
-}//
-// Created by LENOVO on 2026/5/4.
-//
+}
+
