@@ -1,0 +1,63 @@
+ // 纯回溯
+    void backtrack(const string& s1, const string& s2,
+        int i, int j, string curr) {
+        int remain1 = s1.size() - i;
+        int remain2 = s2.size() - j;
+        int max_possible_len = curr.size() + min(remain1, remain2);
+
+        if (max_possible_len <= best_len) {
+            return;
+        }
+
+        if (i == s1.size() || j == s2.size()) {
+            if (curr.size() > best_len) {
+                best_len = curr.size();
+                best_str = curr;
+            }
+            return;
+        }
+
+        if (s1[i] == s2[j]) {
+            curr.push_back(s1[i]);
+            backtrack(s1, s2, i + 1, j + 1, curr);
+            curr.pop_back();
+        }
+        else {
+            backtrack(s1, s2, i + 1, j, curr);
+            backtrack(s1, s2, i, j + 1, curr);
+        }
+    }
+    string lcs_backtrack(string s1, string s2) {
+        best_str = "";
+        best_len = 0;
+        backtrack(s1, s2, 0, 0, "");
+        return best_str;
+    }
+
+    // 纯动态规划
+    string lcs_dp(string s1, string s2) {
+        int m = s1.size();
+        int n = s2.size();
+        vector<vector<int>> dp(m + 1, vector<int>(n + 1, 0));
+
+        for (int i = 1; i <= m; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (s1[i - 1] == s2[j - 1])
+                    dp[i][j] = dp[i - 1][j - 1] + 1;
+                else
+                    dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]);
+            }
+        }
+
+        string result = "";
+        int i = m, j = n;
+        while (i > 0 && j > 0) {
+            if (s1[i - 1] == s2[j - 1]) {
+                result = s1[i - 1] + result;
+                i--; j--;
+            }
+            else if (dp[i - 1][j] > dp[i][j - 1]) i--;
+            else j--;
+        }
+        return result;
+    }
