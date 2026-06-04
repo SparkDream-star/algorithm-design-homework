@@ -193,13 +193,12 @@ public:
                  << setw(20) << getRemainingInput(input, pos)
                  << setw(20) << production
                  << setw(15) << action << endl;
-
             step++;
         }
 
         // 栈空但输入未结束
         if (pos < input.length()) {
-            cout << "错误：输入串未分析完毕，但分析栈已空！\n";
+            cout << "错误：输入串未分析完毕，但分析栈已空！"<<endl;
             return false;
         }
 
@@ -208,13 +207,17 @@ public:
 
     // 打印预测分析表
     void printParseTable() {
-        cout << "\n========== LL(1) 预测分析表 ==========\n";
+        cout << "LL(1) 预测分析表"<<endl;
         cout << "      ";
         for (const auto& t : terminals) {
             cout << setw(10) << t;
         }
-        cout << endl;
-        cout << "----------------------------------------\n";
+
+		cout << endl;
+        cout <<endl;
+        cout <<endl;
+        cout <<endl;
+
 
         for (int i = 0; i < 5; i++) {
             cout << setw(6) << nonTerminals[i];
@@ -225,43 +228,39 @@ public:
             }
             cout << endl;
         }
-        cout << "----------------------------------------\n";
+        cout << "----------------------------------------"<<endl;
     }
 
     // 打印文法
     void printGrammar() {
-        cout << "\n========== 文法 G' ==========\n";
+        cout << "\n========== 文法 G' =========="<<endl;
         cout << "E  → T E'\n";
         cout << "E' → + T E' | ε\n";
         cout << "T  → F T'\n";
         cout << "T' → * F T' | ε\n";
         cout << "F  → ( E ) | i\n";
-        cout << "==============================\n";
+        cout << "=============================="<<endl;
     }
 };
 
 int main() {
     LL1Parser parser;
-
-    // 显示文法和分析表
     parser.printGrammar();
     parser.printParseTable();
-    
-    // 测试用例
-    cout << "\n请输入待分析的符号串（以#结束，包含 i + * ( ) ）：\n";
-    cout << "示例：i+i*i#  或  (i+i)*i#  或  i+(i*i)# 等\n";
+
+    cout << "请输入待分析的符号串（以#结束，包含 i + * ( ) ）："<<endl;
     cout << "输入: ";
-    
+
     string input;
     cin >> input;
-    
-    
-    // 执行分析
+
     bool result = parser.parse(input);
-    
+
     if (!result) {
-        cout << "\n分析结果：该符号串是非法的！\n";
+        cout << "\n分析结果：该符号串是非法的！"<<endl;
     }
-    
+
     return 0;
 }
+
+
