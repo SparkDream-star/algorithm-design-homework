@@ -11,31 +11,29 @@ void chessBoard(vector<vector<int>>& board, int tr, int tc, int dr, int dc, int 
 
     int t = tile++;
     int s = size / 2;
-    if (dr < tr + s && dc < tc + s) {
-        chessBoard(board, tr, tc, dr, dc, s);
-    } else {
-        board[tr + s - 1][tc + s - 1] = t;
-        chessBoard(board, tr, tc, tr + s - 1, tc + s - 1, s);
-    }
+    // // 左上
+    // if (dr < tr + s && dc < tc + s) {
+    //     chessBoard(board, tr, tc, dr, dc, s);
+    // } else {
+    //     board[tr + s - 1][tc + s - 1] = t;
+    //     chessBoard(board, tr, tc, tr + s - 1, tc + s - 1, s);
+    // }
 
-    if (dr < tr + s && dc >= tc + s) {
-        chessBoard(board, tr, tc + s, dr, dc, s);
-    } else {
+    // if (dr < tr + s && dc >= tc + s) {
+    //     chessBoard(board, tr, tc + s, dr, dc, s);
+    // } else {
+    //     board[tr + s - 1][tc + s] = t;
+    //     chessBoard(board, tr, tc + s, tr + s - 1, tc + s, s);
+    // }
 
-        board[tr + s - 1][tc + s] = t;
-        chessBoard(board, tr, tc + s, tr + s - 1, tc + s, s);
-    }
-
-
-    if (dr >= tr + s && dc < tc + s) {
-
-        chessBoard(board, tr + s, tc, dr, dc, s);
-    } else {
-
-        board[tr + s][tc + s - 1] = t;
-        chessBoard(board, tr + s, tc, tr + s, tc + s - 1, s);
-    }
-
+    // if (dr >= tr + s && dc < tc + s) {
+    //
+    //     chessBoard(board, tr + s, tc, dr, dc, s);
+    // } else {
+    //
+    //     board[tr + s][tc + s - 1] = t;
+    //     chessBoard(board, tr + s, tc, tr + s, tc + s - 1, s);
+    // }
 
     if (dr >= tr + s && dc >= tc + s) {
         chessBoard(board, tr + s, tc + s, dr, dc, s);

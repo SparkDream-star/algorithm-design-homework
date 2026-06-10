@@ -11,9 +11,6 @@ int main() {
     cin>>n>>k;
     vector<int>station;
     station.push_back(0);
-    /////////////////count
-    int count = 0;
-    /////////////////
     for (int i = 0; i < n+1; i++) {
         int length = 0;
         cin>>length;
@@ -47,10 +44,10 @@ int main() {
         for (int i = 0; i < add_station.size()-1; i++) {
             cout<<add_station[i]<<" ";
         }
-        cout<<add_station[add_station.size()]<<endl;
+        cout<<add_station[add_station.size()-1]<<endl;
         cout<<total_fuel<<endl;
 
-        ofstream write("C:/Users/LENOVO/Desktop/output.txt");
+        ofstream write("output.txt");
         write<<add_station.size()<<endl;
         for (int i = 0; i < add_station.size()-1; i++) {
             write<<add_station[i]<<" ";
@@ -60,7 +57,7 @@ int main() {
         write.close();
     }
     else {
-        ofstream write("C:/Users/LENOVO/Desktop/output.txt");
+        ofstream write("output.txt");
         write<<"No solution"<<endl;
         write.close();
         cout<<"No solution"<<endl;
