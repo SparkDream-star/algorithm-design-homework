@@ -17,7 +17,7 @@ struct Node {
 //计算城市出边最小
 vector<int> getminE(int n, const vector<vector<int>>& dist) {
     vector<int>minE;
-    int min = dist[0][1];
+    int min = INT_MAX;
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             if (i != j && dist[i][j] < min) {

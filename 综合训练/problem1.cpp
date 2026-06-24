@@ -282,80 +282,16 @@ void test(int test_count, string s1, string s2) {
     cout << "纯回溯                   : " << res_bt << "\n" << endl;
 
 }
-// 10 50 100 500 1000
 // 性能对比实验主函数
 // int main() {
-//     string s1, s2;
-//     // //1000
-//     // // 重复率较高
-//     // s1 = "dabbddeacabcaadcbceaedbaebaaededcebcedecdabbababdbbbbeddadabedcdedbabbbeebdbecbbcbcebbecaaaddcabeceeaddcbdacceebcaeebddadcdcabaeeebaeeacaddaccbecbcdbbedccabbcbbadbeeabdbaeccdeaacccddeacbebaccbbececaeeeeeacbcabebdcceecdabeccdacceaeaacdbaebcdcccebdbbdbbdaceeabbeeebaeddedaebdeaaacbddbdbceeacbaddbdccaaeececaabedeebbadecdaeeeeeadbeeeebdaeebecbdbaabeebdbeceaeaebacdbdcbcbdaecdddbadbbedbbccbacededbcabccdccbcedaacdbeddbaabceacdadcbdaddacaecabecedeceeddcecedcbbddcdbabbbcabddacccbcecdedbabdeecdcdbbcabdcacadabcadacabbbdbdebaacebddddeaaaadcbddaddaeeaabdebdaddadedaedbcbcbeeaededcdebecccdbeeaebcdbaeabdbedbaeadcdddcdabdbccccdbdbbaaacdabcdecbaabaacbecdaececccaaececadaacbeadddbccceebdddebbdaaaaccbbddcdedddeccdeeaabdcbaddeccaacbbaeeceedbadcdeacdcabbdebdbeeccbbeccedccabdddbcecdaedbaccaeecaecdcbeebcbeceebdcecebbcecacbcccbadcbdaddebdeecacceecccdcdacebddeeebbddeaadeedcadecdeadbbaccdaaedbeacbbaeedacbcdcbeabcbccebedbcddadcebddbdddddededbccdabdaaceceebecedbaeaeedeeebdaccddceeabaecebaeebcaebcaeacddecdacacceabcee";
-//     // s2 = "adcebbaaecddcadbacadbbebaeaeaabadaadbbaadcdcdcaceadecceaccdceaadabdcbeccdadedddbcbbccacdbaeaeaadecccbabddededbcbdbaebdceeeeddaeebadbbaeccadadbcbbddcaaaddbdccbdacbdcdabcabbabbadabdceeaeaaeeccdcaabedeeaebccbbbbacacebdeebaadddadcddcecddedaacbbacbcaeaeedcccdecedbcaaaebdcabcccabbcbcddaadbddeebcabedbcebbdededdcdcbbabecbaaeadeeabdabaedeaccdbcbdccbecebeecbbceeeabdecaeebdbeacebcbaacbebaeeddabedadcaabecdcabbacdcaecacbacdbcdaeaccecbcdebadbddddbaceadcddeadcbaaaececbdabdebabedebeccecedadecbadbdcdbaebebeeadbedeaddaadbbcddebdccbdbadcbcbbcebecaececadebbaceededdcabadacbecdabedcdeaedcdbeddaeceaaaabdbeeebdcabccaeadddeceaadcddcdcdbecedbaaccbdbddeeabcbcbbabbdbeabcbdcccbaecebbacedcceceddbccacacdbedaebdbedaccaabccdcbdaedbbecdbebdecdddaceddcdcaddeadaeaabadcdeedaabbdcbaebbdddddabcbebbbdbbedbadbeeeebbdbcbcbcedadcbdcdacdadaceceecaebdeaccdeeaeaeebceeeeacaebecceecaaacbaddcdaeeecadaabbbbdebdaddaabccedbaebdbaaddccccdbbdeacdacacccabcabcacecccacedbedcabaeeaeacddedcebeebddcdbaccdbaabdccebbbedaecdeabaacdadcbbeacbedbcdbb";
-//     // // 完全不同
-//     // s1 = "bicdamllifgmmikefbejgldjklhmhbdcillbjcdihlcjjhglemammbmgdhclhkegedggbmgklefhcbdmhfbeekgiidkmigckcjglhiaalmijfkdjageiiiggahagdmakiklbbbcgkdfefhmcililjbehaacgfkhlbgacllgaamlhamemhjjfbcdkflejbmjgmafkejmfkadmgemfiibikjbcjijebaeedbcfhfaebhefdfbllmhcebdgaffgaddihcbdmeikeeklmbemcemmdjghdekfbhhhihmgjfdjkkfgidijkamgfglihkelgibjieiamifjmfadgghhffkhgeabfmbmbefcggfjedkbliicmdcchmdfcifahchfjcjkablcefdlgihhhekikjdhbbbdcjgfbecijimhgbefaeabkmggifkgbajddgcfjjhbbkkekajhmbkjdmfekfmkdkhejicbccaedhejddlmibmklmlbldjkjighdffilbgdmemeakjjfieagcfcdkehhgeiabkfblfamcibicmdidelcfdjdijagbciajkmfbaejbelbkjbmbgaifjibfilbbjhemebdbhhhkilidggjdalmgbghgmmmblheijmkaadaakgigfjbgidegckgfikiajjlabffhejjbjjcmgkjcbkdlkakdajhbfeghedbhjcgaldgebmlhljfefjdbeglckmmagdkehachdighgkcljdafdeklmailjbgdgamjbllgjembbbkahfmddekjjedackhccgfgmcedbcikjakebdegidmaffjdgkbakmbkeiihdkaalfblkeafchkfaicccdlaiddfhadbclgikkmkehglgfceclkamgjmmbidklamclkekkchkjlajmhhcmlgegbdcgalcbjlkeahlkllmemfbdbcmkmicmjmkchcdibjmmfmmahlmchmbjdmclbjilfddadbafjmlgehbg";
-//     // s2 = "yvvpnxqrznprwuyouutnzpypoppwwwqqqnuxorsqvupnpqoxrstvoupyrsqtpqnwvoruzuuxxstytytoywtyxvvowpzzxoszszvxqyynssrqsyxvtssouwzzuoqtrsrtunqouwnyrqwyynxqqtwoyozsxqsvppxwwyxtprtoyynpxxqsywqxtvonrupyurpywvqspuzyvvqsnxwnyvunqxqzvsrrqtvxsotvxrvuqonzvyqwyqowyxxuvvwvzqssnwupwptxyvtxxypooqxwpvrorwqxrqqytyuznytyrqnyopsuysrwxtvpvnqwpwtwouvszrnprnrxpvvqwrorupxqqwuryzryrpzyspwowuprvnyqtnzvvnvsrutowvqvvquoxowoooppqtpwqntpzrnvyxvootwoqqzqtopnqxrwownyvprsvyoxpszqsyxvxownzpsuxvprrnvxzoyosnqrwvwuuzvrtwovqrvsxuznvpyyyntqznpvsqsxsysotvosunouvqtpvzrnpsuvtvwowprxzqtwnpowwoupzssxwoszxuxsvzottnzxttypuwosuytszywqzzsoswwqwywzvpvqrvzvztwrortuvswxqyxtnovpwpqqxvqwnxoywywuqxxqvzszzrunqvxyxywvwuuxzqpvpptrsuouqrwpornzvvturxrppntstopprrpwtzxznvsyuvzvryzsuqyxrxsnyptzpztnnvxysotwzxvzwosronxuupqsvsnvtvvwuwnzoxqowssvttosxuzovyxwrzuuonutzqwyrsvtppxppxyyzzsuqnowtrovovyrsvquurrsnqpwsxowytrqupuxyouqynnntnusuyuuztxrpxwqttstvyxuptspzvzwtrptnrnpyrtsnzrwtxxqupvrvxtrytryttutopovpprwopxwttppxnnupvnunqpzuunwvqoszypxuxxpvqwrsupsopytsootunxt";
-//     // //完全相同
-//     // s1 = "bicdamllifgmmikefbejgldjklhmhbdcillbjcdihlcjjhglemammbmgdhclhkegedggbmgklefhcbdmhfbeekgiidkmigckcjglhiaalmijfkdjageiiiggahagdmakiklbbbcgkdfefhmcililjbehaacgfkhlbgacllgaamlhamemhjjfbcdkflejbmjgmafkejmfkadmgemfiibikjbcjijebaeedbcfhfaebhefdfbllmhcebdgaffgaddihcbdmeikeeklmbemcemmdjghdekfbhhhihmgjfdjkkfgidijkamgfglihkelgibjieiamifjmfadgghhffkhgeabfmbmbefcggfjedkbliicmdcchmdfcifahchfjcjkablcefdlgihhhekikjdhbbbdcjgfbecijimhgbefaeabkmggifkgbajddgcfjjhbbkkekajhmbkjdmfekfmkdkhejicbccaedhejddlmibmklmlbldjkjighdffilbgdmemeakjjfieagcfcdkehhgeiabkfblfamcibicmdidelcfdjdijagbciajkmfbaejbelbkjbmbgaifjibfilbbjhemebdbhhhkilidggjdalmgbghgmmmblheijmkaadaakgigfjbgidegckgfikiajjlabffhejjbjjcmgkjcbkdlkakdajhbfeghedbhjcgaldgebmlhljfefjdbeglckmmagdkehachdighgkcljdafdeklmailjbgdgamjbllgjembbbkahfmddekjjedackhccgfgmcedbcikjakebdegidmaffjdgkbakmbkeiihdkaalfblkeafchkfaicccdlaiddfhadbclgikkmkehglgfceclkamgjmmbidklamclkekkchkjlajmhhcmlgegbdcgalcbjlkeahlkllmemfbdbcmkmicmjmkchcdibjmmfmmahlmchmbjdmclbjilfddadbafjmlgehbg";
-//     // s2 = "bicdamllifgmmikefbejgldjklhmhbdcillbjcdihlcjjhglemammbmgdhclhkegedggbmgklefhcbdmhfbeekgiidkmigckcjglhiaalmijfkdjageiiiggahagdmakiklbbbcgkdfefhmcililjbehaacgfkhlbgacllgaamlhamemhjjfbcdkflejbmjgmafkejmfkadmgemfiibikjbcjijebaeedbcfhfaebhefdfbllmhcebdgaffgaddihcbdmeikeeklmbemcemmdjghdekfbhhhihmgjfdjkkfgidijkamgfglihkelgibjieiamifjmfadgghhffkhgeabfmbmbefcggfjedkbliicmdcchmdfcifahchfjcjkablcefdlgihhhekikjdhbbbdcjgfbecijimhgbefaeabkmggifkgbajddgcfjjhbbkkekajhmbkjdmfekfmkdkhejicbccaedhejddlmibmklmlbldjkjighdffilbgdmemeakjjfieagcfcdkehhgeiabkfblfamcibicmdidelcfdjdijagbciajkmfbaejbelbkjbmbgaifjibfilbbjhemebdbhhhkilidggjdalmgbghgmmmblheijmkaadaakgigfjbgidegckgfikiajjlabffhejjbjjcmgkjcbkdlkakdajhbfeghedbhjcgaldgebmlhljfefjdbeglckmmagdkehachdighgkcljdafdeklmailjbgdgamjbllgjembbbkahfmddekjjedackhccgfgmcedbcikjakebdegidmaffjdgkbakmbkeiihdkaalfblkeafchkfaicccdlaiddfhadbclgikkmkehglgfceclkamgjmmbidklamclkekkchkjlajmhhcmlgegbdcgalcbjlkeahlkllmemfbdbcmkmicmjmkchcdibjmmfmmahlmchmbjdmclbjilfddadbafjmlgehbg";
-//     // //500
-//     // //重复率较高
-//     // s1 = "dabbddeacabcaadcbceaedbaebaaededcebcedecdabbababdbbbbeddadabedcdedbabbbeebdbecbbcbcebbecaaaddcabeceeaddcbdacceebcaeebddadcdcabaeeebaeeacaddaccbecbcdbbedccabbcbbadbeeabdbaeccdeaacccddeacbebaccbbececaeeeeeacbcabebdcceecdabeccdacceaeaacdbaebcdcccebdbbdbbdaceeabbeeebaeddedaebdeaaacbddbdbceeacbaddbdccaaeececaabedeebbadecdaeeeeeadbeeeebdaeebecbdbaabeebdbeceaeaebacdbdcbcbdaecdddbadbbedbbccbacededbcabccdccbcedaacdbeddbaabceacdadcbdaddacaecabecedeceeddcecedcbbddcdbabbbcabddacccbcecdedbabdeecdcdbbcabdcaca";
-//     // s2 = "dabcadacabbbdbdebaacebddddeaaaadcbddaddaeeaabdebdaddadedaedbcbcbeeaededcdebecccdbeeaebcdbaeabdbedbaeadcdddcdabdbccccdbdbbaaacdabcdecbaabaacbecdaececccaaececadaacbeadddbccceebdddebbdaaaaccbbddcdedddeccdeeaabdcbaddeccaacbbaeeceedbadcdeacdcabbdebdbeeccbbeccedccabdddbcecdaedbaccaeecaecdcbeebcbeceebdcecebbcecacbcccbadcbdaddebdeecacceecccdcdacebddeeebbddeaadeedcadecdeadbbaccdaaedbeacbbaeedacbcdcbeabcbccebedbcddadcebddbdddddededbccdabdaaceceebecedbaeaeedeeebdaccddceeabaecebaeebcaebcaeacddecdacacceabcee";
-//     // // 完全不同
-//     // s1 = "iadcjilbfacgacihchkakjecmebblhkjgmehkilhjacdbdbdieecdmihcjcemihikkcaedcmleiflfddhdhlfcmgbabikfaemgmlajigdibffmldgclldihbjhkgaeamlkdalmbgajjbghdlfchjcemifgbcehccaiclladicbmhgkkcbffgjimbfeldcffddmflhamkmmlcgcfaemdkffmmhjcdmhhjahglcmbchidbldhifhgmcjdfidejafmmacdmlleckjhmiakdimbbbhdhjcidglkbfdakidjhfaallhkhbbelkllcdbklficmlmklajemklkdkbllckfdkcacelmdifmgmbmcmdbfjehgfhdjamgjjieaieeljdeffdbfmilidhadfhigfcglkcbgiekjiccadglaficjgdiajkbfcmgadlfkimhmlhjgkhljgddijgidbddehbdjjafhfcflhjljeaejlmfjhhccfaeifcgb";
-//     // s2 = "vnsunvotnrprwrwxqonuzrvxvwzpnoovupwwpuwoxzonrvzswnvvoxyuozxrsrtryxozvxwswzqxttswqyxoyqturnyppxrywqnzowtwvvtxopvquttswrwqqopotwpptwztqopppntqzuwoytyutspnztxsnvnouqzowuxptssyzqvuwzppvppnnsuqqwwsvzxvvzsuvyxnpqwuqovwzttonsrqozxuzzvqnwtvypuvtorrvyrwqzxusrrzstzvusprwvwpuzswozuqpuuozysoxtwtqxzqurytyyqxsztxqquztouruusrpwuqxnwwxsvxztntuyystswsvptzrwvyyyrrwwynnvyzwsovyswynxqrotuxpoyvqyosqqnxyvpsruvsqxpstquuzqzvquvwnutyqxurvvvwvxvyvrsuwoqwpouztyxqxtxwrozozywzzxrxntsvvuxzoqnyuypnxyqsozqtoyosvwzswpsotsznrszy";
-//     // // 完全相同
-//     // s1 = "iadcjilbfacgacihchkakjecmebblhkjgmehkilhjacdbdbdieecdmihcjcemihikkcaedcmleiflfddhdhlfcmgbabikfaemgmlajigdibffmldgclldihbjhkgaeamlkdalmbgajjbghdlfchjcemifgbcehccaiclladicbmhgkkcbffgjimbfeldcffddmflhamkmmlcgcfaemdkffmmhjcdmhhjahglcmbchidbldhifhgmcjdfidejafmmacdmlleckjhmiakdimbbbhdhjcidglkbfdakidjhfaallhkhbbelkllcdbklficmlmklajemklkdkbllckfdkcacelmdifmgmbmcmdbfjehgfhdjamgjjieaieeljdeffdbfmilidhadfhigfcglkcbgiekjiccadglaficjgdiajkbfcmgadlfkimhmlhjgkhljgddijgidbddehbdjjafhfcflhjljeaejlmfjhhccfaeifcgb";
-//     // s2 = "iadcjilbfacgacihchkakjecmebblhkjgmehkilhjacdbdbdieecdmihcjcemihikkcaedcmleiflfddhdhlfcmgbabikfaemgmlajigdibffmldgclldihbjhkgaeamlkdalmbgajjbghdlfchjcemifgbcehccaiclladicbmhgkkcbffgjimbfeldcffddmflhamkmmlcgcfaemdkffmmhjcdmhhjahglcmbchidbldhifhgmcjdfidejafmmacdmlleckjhmiakdimbbbhdhjcidglkbfdakidjhfaallhkhbbelkllcdbklficmlmklajemklkdkbllckfdkcacelmdifmgmbmcmdbfjehgfhdjamgjjieaieeljdeffdbfmilidhadfhigfcglkcbgiekjiccadglaficjgdiajkbfcmgadlfkimhmlhjgkhljgddijgidbddehbdjjafhfcflhjljeaejlmfjhhccfaeifcgb";
-//     // //100
-//     // // 重复较高
-//     // s1 = "dabbddeacabcaadcbceaedbaebaaededcebcedecdabbababdbbbbeddadabedcdedbabbbeebdbecbbcbcebbecaaaddcabecee";
-//     // s2 = "addcbdacceebcaeebddadcdcabaeeebaeeacaddaccbecbcdbbedccabbcbbadbeeabdbaeccdeaacccddeacbebaccbbececaee";
-//     // // 完全不同
-//     // s1 = "iadcjilbfacgacihchkakjecmebblhkjgmehkilhjacdbdbdieecdmihcjcemihikkcaedcmleiflfddhdhlfcmgbabikfaemgml";
-//     // s2 = "nwvtqvosszyqtpyyqvuowuxtnrnzyxqnyzotnwwotuqyspuwprzvstopruppnvpyynqvpozutxxposstwvzosryqpssqqzsyunzx";
-//     // // 完全相同
-//     // s1 = "iadcjilbfacgacihchkakjecmebblhkjgmehkilhjacdbdbdieecdmihcjcemihikkcaedcmleiflfddhdhlfcmgbabikfaemgml";
-//     // s2 = "iadcjilbfacgacihchkakjecmebblhkjgmehkilhjacdbdbdieecdmihcjcemihikkcaedcmleiflfddhdhlfcmgbabikfaemgml";
-//     // //50
-//     // // 重复率较高
-//     // s1 = "dabbddeacabcaadcbceaedbaebaaededcebcedecdabbababdb";
-//     // s2 = "bbbeddadabedcdedbabbbeebdbecbbcbcebbecaaaddcabecee";
-//     // // 完全不同
-//     // s1 = "iadcjilbfacgacihchkakjecmebblhkjgmehkilhjacdbdbdie";
-//     // s2 = "rpqzvupwprzvuvxxpnrqpzyrvsysqququyspztonovxsnrztzy";
-//     // // 完全相同
-//     // s1 = "bbbeddadabedcdedbabbbeebdbecbbcbcebbecaaaddcabecee";
-//     // s2 = "bbbeddadabedcdedbabbbeebdbecbbcbcebbecaaaddcabecee";
-//     //20
-//     // // 重复率较高
-//     // s1 = "dabbdddabbddeacabcea";
-//     // s2 = "edbaebabcaadcbceadec";
-//     // // 完全不同
-//     // s1 = "iadcjilbfacgacihchka";
-//     // s2 = "xwrpzrooyuxwtzruxvyu";
-//     // // 完全相同
-//     // s1 = "iadcjilbfacgacihchka";
-//     // s2 = "iadcjilbfacgacihchka";
-//     //10
-//     // // 重复率较高
-//     // s1 = "dabbptncat";
-//     // s2 = "bcaadcbcea";
-//     // // 完全不同
-//     // s1 = "iadcjilbfa";
-//     // s2 = "ptnpvupuxn";
-//     // // 完全相同
-//     // s1 = "iadcjilbfa";
-//     // s2 = "iadcjilbfa";
-//     /*
-//      * 使用时先将数据s1、s2前的注释去掉以确定测试的字符串
-//      * num_1, num_2
-//      * test_count: 测试的次数
-//      */
+/*
+ * 使用时先从相关数据中复制到s1和s2中
+ */
+//     string s1;
+//     string s2;
 //     int test_count;
 //     test_count = 10;
-//     string s_1, s_2;
-//     s_1 = s1;s_2 = s2;
-//     test(test_count, s_1, s_2);
+//     test(test_count, s1, s2);
 //     return 0;
 // }
 
